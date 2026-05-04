@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pop Mart - Kimetsu no Yaiba",
+        "precio": 400200,
+        "stock": 10,
+        "imagen": "/images/pop-mart-kimetsu.jpg",
+        "descripcion": "Colección de 13 figuras. Marca: Pop Mart. Tamaño: 6*8cm. Material: PVC/ABS. "
+    },
+    {
+        "id": 2,
+        "nombre": "Chokonose - Douma - Kimetsu no Yaiba",
+        "precio": 252299,
+        "stock": 7,
+        "imagen": "/images/douma-figure.webp",
+        "descripcion": "Figura Douma. Marca Sega. Tamaño: 9*12cm. Material: PVC/ABS."
+    },
+    {
+        "id": 3,
+        "nombre": "Banpresto - Tokito - Kimetsu no Yaiba",
+        "precio": 95999,
+        "stock": 8,
+        "imagen": "/images/tokito-banpresto.webp",
+        "descripcion": "Figura Tokito. Marca Banpresto. Tamaño: 16cm. Material: PVC/ABS."
+    },
+    {
+        "id": 4,
+        "nombre": "Xiao - Plush",
+        "precio": 70000,
+        "stock": 12,
+        "imagen": "/images/xiao_plush.webp",
+        "descripcion": "Xiao Teyvat Zoo Series Plush. Marca MiHoYo. Tamaño: aprox. 10cm. Material: 100% poliester."
+    },
+    {
+        "id": 5,
+        "nombre": "Pop-mart Genshin Impact",
+        "precio": 123500,
+        "stock": 3,
+        "imagen": "/images/pop_mart_genshin.webp",
+        "descripcion": "Colección de 13 figuras. Marca: Pop Mart. Tamaño: 6*8cm. Material: PVC/ABS."
+    },
+    {
+        "id": 6,
+        "nombre": "Wriothesley - Plush",
+        "precio": 65900,
+        "stock": 4,
+        "imagen": "/images/wrio_plush.webp",
+        "descripcion": "Wriothesley Plush Masctos MiHoYo. Marca: MiHoYo. Tamaño: aprox. 11*6cm. Material: algodón y poliester."
+    }
+]

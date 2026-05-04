@@ -1,0 +1,64 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ccfbf4;
+}
+
+.header {
+    background-color: #F6F7FB;
+    padding: 10px;
+    text-align: center;
+    color: #4a448f;
+}
+
+.header h1 {
+    font-size: 2em;
+    color: #7904bd;
+}
+
+
+.mainContent {
+    padding: 40px;
+    flex-grow: 1;
+}
+
+.nav {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav a {
+    color: #cb56f9; /* Celeste para que se vea sobre el negro */
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
+
+.destacados {
+    color: #860242ae;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.logo-wrapper {
+  display: flex;       
+  align-items: center;  
+  justify-content: center; 
+  gap: 15px;            
+}
+
+.logo-img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+}

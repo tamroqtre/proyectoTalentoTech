@@ -1,0 +1,112 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    max-width: 300px;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    background: #fcafd5;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efectito de que flota al pasar el mouse */
+}
+
+.image {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    display: block;
+}
+
+
+.selectorCantidad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+
+.botonPequeno {
+    background-color: #9332d8; 
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.botonPequeno:hover:not(:disabled) {
+    background-color: #ff69b4; 
+    transform: scale(1.1);
+}
+
+.botonPequeno:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cantidadTexto {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    min-width: 20px;
+}
+
+.botonAgregar {
+    background-color: #58d8f1; 
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    width: 80%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.botonAgregar:hover:not(:disabled) {
+    background-color: #860242ae;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.botonAgregar:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.botonIrAlCarrito {
+    display: inline-block;
+    background-color: #37b08a;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+    transition: background 0.3s;
+}
+
+.botonIrAlCarrito:hover {
+    background-color: #21887c;
+}

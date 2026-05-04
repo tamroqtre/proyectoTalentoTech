@@ -1,0 +1,173 @@
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.title {
+    color: #4b0082;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.itemInfo h3 {
+    margin: 0;
+    color: #333;
+}
+
+.itemInfo p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.priceInfo {
+    text-align: right;
+}
+
+.subtotal {
+    font-weight: bold;
+    color: #ff69b4;
+}
+
+.totalSection {
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: right;
+    border-top: 2px solid #4b0082;
+}
+
+.totalText {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.buttonGroup {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.clearButton {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.checkoutButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.emptyCart {
+    text-align: center;
+    padding: 50px;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+
+.qtyButton {
+    background-color: #9332d8; 
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.qtyButton:hover {
+    background-color: #ff69b4; 
+    transform: scale(1.1);
+}
+
+.qtyButton:active {
+    transform: scale(0.9);
+}
+
+.qtyNumber {
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 20px;
+    text-align: center;
+}
+
+.deleteButton {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: opacity 0.3s;
+}
+
+.deleteButton:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/*Widget*/
+
+.widgetContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+}
+
+.icon {
+    font-size: 1.8rem;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #ff69b4; 
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
