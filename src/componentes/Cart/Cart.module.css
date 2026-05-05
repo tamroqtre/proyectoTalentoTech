@@ -203,3 +203,24 @@
     text-align: center;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .cartItem {
+        flex-direction: column; /* Foto/Nombre arriba, precios abajo */
+        text-align: center;
+        gap: 15px;
+    }
+
+    .priceInfo {
+        text-align: center;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+        width: 100%;
+    }
+}

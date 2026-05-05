@@ -72,3 +72,24 @@
     align-items: center;
     gap: 10px
 }
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 10px;
+    }
+    
+    .logoLink {
+        justify-content: center; /* Centra el logo en móvil */
+        margin-bottom: 15px;
+    }
+
+    .nav {
+        flex-direction: column; /* Los links uno debajo de otro */
+        gap: 15px;
+    }
+
+    .nav a {
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+}

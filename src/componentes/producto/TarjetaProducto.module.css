@@ -124,3 +124,15 @@
 .botonIrAlCarrito:hover {
     background-color: #21887c;
 }
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%; /* Que ocupe casi todo el ancho en celus */
+        max-width: none;
+        margin: 10px auto;
+    }
+
+    .image {
+        height: 250px; /* Imagen más grande y clara en móvil */
+    }
+}

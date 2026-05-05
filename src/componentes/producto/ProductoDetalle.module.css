@@ -118,3 +118,32 @@
         font-size: 1rem;
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+        margin: 10px;
+        gap: 25px;
+        box-shadow: none; /* Quitamos sombras pesadas en móvil para que sea más limpio */
+    }
+
+    .image {
+        max-width: 250px; /* Evita que la imagen sea gigante */
+    }
+
+    .title {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .price {
+        font-size: 1.8rem;
+        align-self: center; /* Centra el precio */
+    }
+
+    .button {
+        width: 100%; /* Botón ancho para que sea fácil de clickear con el pulgar */
+        padding: 15px;
+    }
+}
