@@ -18,6 +18,20 @@
     transform: translateY(-5px); /* Efectito de que flota al pasar el mouse */
 }
 
+.cardTitle {
+    color: #4c00829f; 
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.cardPrice {
+    color: #c802659e;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
 .image {
     width: 100%; 
     height: 200px; 

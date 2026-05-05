@@ -42,14 +42,18 @@ function TarjetaProducto({ id, imagen, nombre, precio, stock }) {
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginTop: '10px' }}>
                 <Link to={`/producto/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <h3>{nombre}</h3>
+                    <h3 className={styles.cardTitle}>{nombre}</h3>
                 </Link>
                 <span onClick={marcarComoFavotiro} style={{ cursor: 'pointer' }}>
                     {esFavorito ? '⭐' : '☆'}
                 </span>
             </div>
 
-            <p>${Number(precio).toLocaleString('es-AR')}</p>
+            <p className={styles.cardPrice}>{new Intl.NumberFormat('es-AR', {
+                style: 'currency',
+                currency: 'ARS',
+                minimumFractionDigits: 0
+            }).format(precio)}</p>
             <div className={styles.selectorCantidad}>
                 <button className={styles.botonPequeno} onClick={decrementar}>-</button>
                 <span className={styles.cantidadTexto} style={{ margin: '0 10px' }}>{cantidad}</span>

@@ -9,8 +9,10 @@ function Header() {
     return (
         <header className={styles.header}>
             <div className={styles["logo-wrapper"]}>
+                <Link to="/" className={styles.logoLink}>
                 <h1>Akiba Crew </h1>
                 <img src="/images/logo2.png" alt="Logo Akiba Crew" className={styles["logo-img"]} />
+                </Link>
             </div>
             <nav className={styles.nav}>
                 <NavLink to="/" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Inicio</NavLink>

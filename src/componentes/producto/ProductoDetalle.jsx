@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./ProductoDetalle.module.css";
+import { useCart } from "../../Contex/CartContext";
 
 const ProductoDetalle = () => {
     const { id } = useParams();
     const [producto, setProducto] = useState(null);
+
+    const { addToCart } = useCart();
 
     useEffect(() => {
         fetch('/data/productos.json')
@@ -31,9 +34,17 @@ const ProductoDetalle = () => {
             </div>
             <div className={styles.infoSection}>
                 <h2 className={styles.title}>Detalle del producto: {producto.nombre}</h2>
-                <h3 className={styles.price}>${producto.precio}</h3>
+                <h3 className={styles.price}>{new Intl.NumberFormat('es-AR', {
+                    style: 'currency',
+                    currency: 'ARS',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(producto.precio)}</h3>
                 <p className={styles.description}>{producto.descripcion}</p>
-                <button className={styles.button}>
+                <button className={styles.button} onClick={() => {
+                    addToCart(producto, 1);
+                    alert(`¡${producto.nombre} agregado al carrito! 🛒`);
+                }}>
                     Agregar al carrito 🛒
                 </button>
             </div>
