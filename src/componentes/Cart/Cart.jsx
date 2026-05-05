@@ -59,7 +59,7 @@ const Cart = () => {
                     minimumFractionDigits: 0,
                     maximumFractionDigits: 0
                 }).format(getCartTotal())}</p>
-                <div>
+                <div className={styles.buttonGroup}>
                     <button className={styles.clearButton} onClick={clearCart}>Vaciar carrito</button>
                     <Link to="/" onClick={() => { alert("Gracias por tu compra en Akiba Crew"); clearCart(); }} className={styles.checkoutButton}>Finalziar compra</Link>
                 </div>

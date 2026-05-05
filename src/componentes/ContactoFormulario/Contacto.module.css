@@ -8,7 +8,7 @@
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    border: 1px solid #fce4ec; 
+    border: 1px solid #fce4ec;
 }
 
 .form-container h3 {
@@ -38,10 +38,12 @@
 .form-group label {
     font-size: 1rem;
     font-weight: 600;
-    color: #4a148c; /* Violeta oscuro para contraste */
+    color: #4a148c;
+    /* Violeta oscuro para contraste */
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     padding: 12px;
     border: 2px solid #f1f1f1;
     border-radius: 8px;
@@ -54,7 +56,8 @@
     resize: none;
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: #f8bbd0;
     box-shadow: 0 0 8px rgba(248, 187, 208, 0.4);
@@ -64,7 +67,8 @@
 .btn-submit {
     margin-top: 10px;
     padding: 14px;
-    background-color: #f8bbd0; /* Rosa Akiba */
+    background-color: #f8bbd0;
+    /* Rosa Akiba */
     color: #880e4f;
     border: none;
     border-radius: 8px;
@@ -87,4 +91,21 @@
     background-color: #e0e0e0;
     color: #9e9e9e;
     cursor: not-allowed;
+}
+
+.buttonGroup {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.clearButton,
+.checkoutButton {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+.totalSection {
+    text-align: center;
 }
