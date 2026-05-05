@@ -6,8 +6,21 @@ import { useCart } from "../../Contex/CartContext";
 const ProductoDetalle = () => {
     const { id } = useParams();
     const [producto, setProducto] = useState(null);
+    const [cantidad, setCantidad] = useState(1);
 
     const { addToCart } = useCart();
+
+    const incrementar = () => {
+        if (cantidad < producto.stock) {
+            setCantidad(cantidad + 1);
+        }
+    };
+
+    const decrementar = () => {
+        if (cantidad > 1) {
+            setCantidad(cantidad - 1);
+        }
+    };
 
     useEffect(() => {
         fetch('/data/productos.json')
@@ -40,9 +53,14 @@ const ProductoDetalle = () => {
                     minimumFractionDigits: 0,
                     maximumFractionDigits: 0
                 }).format(producto.precio)}</h3>
+                <div className={styles.selectorCantidad}>
+                    <button className={styles.botonPequeno} onClick={decrementar}>-</button>
+                    <span className={styles.cantidadTexto} style={{ margin: '0 10px' }}>{cantidad}</span>
+                    <button className={styles.botonPequeno} onClick={incrementar} disabled={cantidad >= producto.stock}>+</button>
+                </div>
                 <p className={styles.description}>{producto.descripcion}</p>
                 <button className={styles.button} onClick={() => {
-                    addToCart(producto, 1);
+                    addToCart(producto, cantidad);
                     alert(`¡${producto.nombre} agregado al carrito! 🛒`);
                 }}>
                     Agregar al carrito 🛒

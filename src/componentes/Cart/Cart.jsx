@@ -30,11 +30,21 @@ const Cart = () => {
                             <button className={styles.qtyButton} onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
                         </div>
                         <p>Cantidad: {item.quantity}</p>
-                        <p>Precio unitario: ${item.precio}</p>
+                        <p>Precio unitario: ${new Intl.NumberFormat('es-AR', {
+                            style: 'currency',
+                            currency: 'ARS',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0
+                        }).format(item.precio)}</p>
                     </div>
                     <div className={styles.priceInfo}>
-                        <p className={styles.subtotal}>Subtotal: ${item.precio * item.quantity}</p>
-                        <button className={styles.deleteButton} 
+                        <p className={styles.subtotal}>Subtotal: {new Intl.NumberFormat('es-AR', {
+                            style: 'currency',
+                            currency: 'ARS',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0
+                        }).format(item.precio * item.quantity)}</p>
+                        <button className={styles.deleteButton}
                             onClick={() => removeItem(item.id)}>
                             Eliminar 🗑️
                         </button>
@@ -43,10 +53,15 @@ const Cart = () => {
             ))}
             <hr />
             <div className={styles.totalSection}>
-                <p className={styles.totalText}>Total a pagar: ${getCartTotal()}</p>
+                <p className={styles.totalText}>Total a pagar: {new Intl.NumberFormat('es-AR', {
+                    style: 'currency',
+                    currency: 'ARS',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(getCartTotal())}</p>
                 <div>
                     <button className={styles.clearButton} onClick={clearCart}>Vaciar carrito</button>
-                    <Link to="/" onClick={()=> {alert("Gracias por tu compra en Akiba Crew"); clearCart();}} className={styles.checkoutButton}>Finalziar compra</Link>
+                    <Link to="/" onClick={() => { alert("Gracias por tu compra en Akiba Crew"); clearCart(); }} className={styles.checkoutButton}>Finalziar compra</Link>
                 </div>
             </div>
         </div>

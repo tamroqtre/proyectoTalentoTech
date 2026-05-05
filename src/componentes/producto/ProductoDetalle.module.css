@@ -147,3 +147,37 @@
         padding: 15px;
     }
 }
+
+.selectorCantidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.botonPequeno {
+    background-color: #9332d8; 
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.botonPequeno:hover:not(:disabled) {
+    background-color: #ff69b4;
+    transform: scale(1.1);
+}
+
+.cantidadTexto {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #4a148c;
+}
