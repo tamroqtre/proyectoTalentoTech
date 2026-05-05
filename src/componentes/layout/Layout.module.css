@@ -23,16 +23,17 @@
     flex-grow: 1;
 }
 
-.nav {
-    margin-top: 10px;
+.nav,
+.link-activo {
+    color: #e6396a !important;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
 }
 
 .nav a {
-    color: #cb56f9; /* Celeste para que se vea sobre el negro */
+    color: #cb56f9;
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
@@ -51,14 +52,14 @@
 }
 
 .logo-wrapper {
-  display: flex;       
-  align-items: center;  
-  justify-content: center; 
-  gap: 15px;            
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .logo-img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
+    width: 50px;
+    height: auto;
+    object-fit: contain;
 }

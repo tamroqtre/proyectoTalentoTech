@@ -2,6 +2,7 @@ import styles from './Layout.module.css'
 import { Link } from 'react-router-dom';
 import { useCart } from '../../Contex/CartContext';
 import CartWidget from '../Cart/CartWidget';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
 
@@ -12,9 +13,9 @@ function Header() {
                 <img src="/images/logo2.png" alt="Logo Akiba Crew" className={styles["logo-img"]} />
             </div>
             <nav className={styles.nav}>
-                <Link to="/">Inicio</Link>
-                <Link to="/productos">Productos</Link>
-                <Link to="/contactanos">Contactanos</Link>
+                <NavLink to="/" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Inicio</NavLink>
+                <NavLink to="/productos" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Productos</NavLink>
+                <NavLink to="/contactanos" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Contactanos</NavLink>
                 <CartWidget />
             </nav>
         </header>
