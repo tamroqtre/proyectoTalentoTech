@@ -49,11 +49,6 @@ export const CartProvider = ({ children }) => {
         } else if (newQuantity > itemInCart.stock) {
             alert (`Lo sentimos, solo tenemos ${itemInCart.stock} unidades en stock.`);
         }
-
-        const updatedCart = cart.map(item =>
-            item.id === productId ? { ...item, quantity: newQuantity } : item
-        );
-        setCart(updatedCart);
     };
 
     const removeItem = (productId) => {

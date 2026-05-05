@@ -81,8 +81,40 @@
 }
 
 .emptyCart {
-    text-align: center;
-    padding: 50px;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.emptyCart h1 {
+    color: #b424d5;
+    font-size: 2.2rem;
+}
+
+.emptyCart p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+
+.emptyCart a {
+    background-color: #ff69b4; 
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.emptyCart a:hover {
+    background-color: #e6396a;
+    transform: translateY(-3px);
+    color: white;
 }
 
 .quantityControls {

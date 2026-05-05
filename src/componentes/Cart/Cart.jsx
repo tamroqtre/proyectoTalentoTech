@@ -12,7 +12,7 @@ const Cart = () => {
             <div className={styles.emptyCart}>
                 <h1>El carrito está vacío</h1>
                 <p>Agrega productos para continar con la compra.</p>
-                <Link to="/productos" className="btn-volver"> Ver productos </Link>
+                <Link to="/productos" className={styles.btnVolver}> Ver productos </Link>
             </div>
         );
     }
@@ -26,7 +26,7 @@ const Cart = () => {
                         <h3>{item.nombre}</h3>
                         <div className={styles.quantityControls}>
                             <button className={styles.qtyButton} onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
-                            <span span className={styles.qtyNumber}>{item.quantity}</span>
+                            <span className={styles.qtyNumber}>{item.quantity}</span>
                             <button className={styles.qtyButton} onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
                         </div>
                         <p>Cantidad: {item.quantity}</p>
