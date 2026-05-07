@@ -61,7 +61,7 @@ const Cart = () => {
                 }).format(getCartTotal())}</p>
                 <div className={styles.buttonGroup}>
                     <button className={styles.clearButton} onClick={clearCart}>Vaciar carrito</button>
-                    <Link to="/" onClick={() => { alert("Gracias por tu compra en Akiba Crew"); clearCart(); }} className={styles.checkoutButton}>Finalziar compra</Link>
+                    <Link to="/" onClick={() => { alert("Gracias por tu compra en Akiba Crew"); clearCart(); }} className={styles.checkoutButton}>Finalizar compra</Link>
                 </div>
             </div>
         </div>
