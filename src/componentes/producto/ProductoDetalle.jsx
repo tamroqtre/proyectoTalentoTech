@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./ProductoDetalle.module.css";
-import { useCart } from "../../Contex/CartContext";
+import { useCart } from "../../Context/CartContext";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 const ProductoDetalle = () => {
     const { id } = useParams();
@@ -23,21 +25,39 @@ const ProductoDetalle = () => {
     };
 
     useEffect(() => {
-        fetch('/data/productos.json')
-            .then(response => response.json())
-            .then(data => {
-                const productoEncontrado = data.find(p => p.id === parseInt(id));
-                setProducto(productoEncontrado);
-            })
-            .catch(error => console.error("Erro al cargar el producto", error));
+        /* fetch('/data/productos.json')
+             .then(response => response.json())
+             .then(data => {
+                 const productoEncontrado = data.find(p => p.id === parseInt(id));
+                 setProducto(productoEncontrado);
+             })
+             .catch(error => console.error("Erro al cargar el producto", error)); */
+
+        if (id) {
+            const docRef = doc(db, "productos", id);
+
+            getDoc(docRef)
+                .then((resp) => {
+                    if (resp.exists()) {
+                        setProducto({ ...resp.data(), id: resp.id });
+                    } else {
+                        console.log("No se encontró el producto");
+                        setProducto({ error: true});
+                    }
+                }).catch(error => console.log(error));
+                setProducto({error: true});
+        }
+
     }, [id]);
 
+
+
     if (!producto) {
-        return <h2 style={{ textAlign: 'center' }}>Producto no encontrado o cargando...</h2>
+        return <h2 style={{ textAlign: 'center' }}>Cargando detalle del producto...</h2>
     }
 
-    if (!producto.id) {
-        return <h2 style={{ textAlign: 'center' }}>Producto no encontrado.</h2>;
+    if (producto.error) {
+        return <h2 style={{ textAlign: 'center' }}>Producto no encontrado en la base de datos.</h2>;
     }
 
     return (

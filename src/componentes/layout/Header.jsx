@@ -1,6 +1,6 @@
 import styles from './Layout.module.css'
 import { Link } from 'react-router-dom';
-import { useCart } from '../../Contex/CartContext';
+import { useCart } from '../../Context/CartContext';
 import CartWidget from '../Cart/CartWidget';
 import { NavLink } from 'react-router-dom';
 

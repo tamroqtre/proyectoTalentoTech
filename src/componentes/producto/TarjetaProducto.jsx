@@ -1,7 +1,7 @@
 import styles from './TarjetaProducto.module.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../Contex/CartContext'
+import { useCart } from '../../Context/CartContext'
 
 function TarjetaProducto({ id, imagen, nombre, precio, stock }) {
 

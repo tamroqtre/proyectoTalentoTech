@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../../Contex/CartContext';
+import { useCart } from '../../Context/CartContext';
 import styles from './Cart.module.css';
 
 const CartWidget = () => {
