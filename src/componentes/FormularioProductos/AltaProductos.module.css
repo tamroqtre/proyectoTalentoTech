@@ -2,17 +2,19 @@
 .form-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
     max-width: 450px;
     margin: 40px auto;
     padding: 30px;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    border: 1px solid #fce4ec; /* Rosa muy suave */
+    border: 1px solid #fce4ec;
+    box-sizing: border-box;
 }
 
 .form-container h3 {
-    color: #880e4f; /* Rosa fuerte/Bordeaux */
+    color: #880e4f; 
     text-align: center;
     margin-bottom: 25px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,15 +36,22 @@
     color: #4a148c; /* Violeta oscuro para contraste */
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
+    width: 100%;
     padding: 12px;
     border: 2px solid #f1f1f1;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    font-family: inherit;
     transition: all 0.3s ease;
+    background-color: #ffffff;
+    color: #333;
+    box-sizing: border-box;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
     border-color: #f8bbd0;
     box-shadow: 0 0 8px rgba(248, 187, 208, 0.4);
@@ -83,4 +92,24 @@ input[type="file"] {
     background-color: #f9f9f9;
     padding: 8px;
     border-style: dashed;
+}
+
+/* Estilo select */
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234a148c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
 }

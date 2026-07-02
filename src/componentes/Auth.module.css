@@ -1,0 +1,127 @@
+/* Auth.module.css */
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #fce4ec;
+    box-sizing: border-box;
+}
+
+.formContainer h2 {
+    color: #b424d5; /* El violeta característico tuyo */
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 2px solid #f8bbd0; /* Línea Rosa Akiba abajo del título */
+    padding-bottom: 10px;
+}
+
+.formGroup {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a148c; /* Violeta oscuro de tus etiquetas */
+}
+
+.formGroup input {
+    padding: 12px;
+    border: 2px solid #f1f1f1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: #f8bbd0; /* Rosa al hacer foco */
+    box-shadow: 0 0 8px rgba(248, 187, 208, 0.4);
+}
+
+.btnSubmit {
+    margin-top: 10px;
+    padding: 14px;
+    background-color: #f8bbd0; /* Rosa Akiba */
+    color: #880e4f; /* Letras magentas oscuras */
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btnSubmit:hover {
+    background-color: #f48fb1; /* Un rosa un toque más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+.btnSubmit:active {
+    transform: translateY(0);
+}
+
+.redirectText {
+    text-align: center;
+    margin-top: 15px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.redirectText a {
+    color: #ff69b4; /* Tu hot pink de links activos */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.redirectText a:hover {
+    color: #b424d5;
+    text-decoration: underline;
+}
+
+/*Mensaje de error */
+.errorMessage {
+    color: #880e4f;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 10px 0; /* Un poco de espacio arriba y abajo para que no quede pegado */
+}  
+
+/* Botton registarse */
+
+.btnSubmit {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #f8bbd0; /* Rosa Akiba */
+    color: #880e4f;            /* Fucsia oscuro para contraste */
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;               /* Para que ocupe todo el ancho del formulario */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnSubmit:hover {
+    background-color: #f48fb1; /* Un rosa un poco más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Se eleva sutilmente */
+}
+
+.btnSubmit:active {
+    transform: translateY(0);    /* Vuelve a su lugar al hacer click */
+}

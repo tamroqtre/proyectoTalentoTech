@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { FormularioProducto } from "./FormularioProductos";
+import { FormularioProducto } from "./FormularioAltaProductos";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
-
-
-export function FormularioContainer() {
+export function AltaProductosContainer() {
     const [datosForm, setDatosForm] = useState({
         nombre: '',
         precio: '',
         stock: '',
+        descripcion: '',
+        categoria: '',
     });
     const [imagenFile, setImagenFile] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -29,6 +31,8 @@ export function FormularioContainer() {
             return;
         }
 
+        setLoading(true);
+
         const apiKey = '22d16147610632b5b736b8744d067764';
         const formData = new FormData();
         formData.append('image', imagenFile);
@@ -43,8 +47,27 @@ export function FormularioContainer() {
             const datosImgbb = await respuestaImgbb.json();
 
             if (datosImgbb.success) {
-                console.log('Producto completo:', { ...datosForm, urlImagen: datosImgbb.data.url });
-                alert("¡Producto cargado con éxito!");
+                console.log('Imagen subida con éxito:', datosImgbb.data.url);
+                
+                const nuevoProducto = {
+                    nombre: datosForm.nombre,
+                    precio: Number(datosForm.precio),
+                    stock: Number(datosForm.stock),
+                    descripcion: datosForm.descripcion,
+                    imagen: datosImgbb.data.url,
+                    categoria: datosForm.categoria
+                };
+
+                const productosRef = collection(db, "productos");
+
+                const docRef = await addDoc(productosRef, nuevoProducto);
+                
+                console.log("Producto guardado en Firestore con ID:", docRef.id);
+                alert("Producto creado y subido con éxito!")
+
+                setDatosForm({ nombre:'', precio:'', stock:'', categoria:'', descripcion:''});
+                setImagenFile(null);
+                evento.target.reset();
             }
 
         }
