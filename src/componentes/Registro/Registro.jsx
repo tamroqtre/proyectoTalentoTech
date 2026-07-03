@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {doc, setDoc} from "firebase/firestore";
+import {db} from "../../firebase/config";
 import styles from '../Auth.module.css';
 
 const Registro = () => {
@@ -15,7 +17,13 @@ const Registro = () => {
         setError(null);
 
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
+
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+            await setDoc(doc(db, "usuarios", userCredential.user.uid), {
+                email: email,
+                rol: "user"
+            });
 
             navigate('/');
         } catch (error) {

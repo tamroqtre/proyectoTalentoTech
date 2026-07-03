@@ -22,6 +22,13 @@ const Cart = () => {
             <h1 className={styles.title}>Carrito de Compras</h1>
             {cart.map(item => (
                 <div key={item.id} className={styles.cartItem}>
+
+                    <img
+                        src={item.imagen}
+                        alt={item.nombre}
+                        className={styles.cartItemImg}
+                    />
+
                     <div className={styles.itemInfo}>
                         <h3>{item.nombre}</h3>
                         <div className={styles.quantityControls}>

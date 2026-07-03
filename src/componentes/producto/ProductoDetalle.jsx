@@ -4,11 +4,14 @@ import styles from "./ProductoDetalle.module.css";
 import { useCart } from "../../Context/CartContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+
 
 const ProductoDetalle = () => {
     const { id } = useParams();
     const [producto, setProducto] = useState(null);
     const [cantidad, setCantidad] = useState(1);
+    const [esFavorito, setEsFavorito] = useState(false);
 
     const { addToCart } = useCart();
 
@@ -23,6 +26,10 @@ const ProductoDetalle = () => {
             setCantidad(cantidad - 1);
         }
     };
+
+    const marcarComoFavotiro = () => {
+        setEsFavorito(!esFavorito);
+    }
 
     useEffect(() => {
         /* fetch('/data/productos.json')
@@ -42,10 +49,10 @@ const ProductoDetalle = () => {
                         setProducto({ ...resp.data(), id: resp.id });
                     } else {
                         console.log("No se encontró el producto");
-                        setProducto({ error: true});
+                        setProducto({ error: true });
                     }
                 }).catch(error => console.log(error));
-                setProducto({error: true});
+            setProducto({ error: true });
         }
 
     }, [id]);
@@ -65,14 +72,30 @@ const ProductoDetalle = () => {
             <div className={styles.imageSection}>
                 <img src={producto.imagen} alt={producto.nombre} className={styles.image} />
             </div>
+
             <div className={styles.infoSection}>
-                <h2 className={styles.title}>Detalle del producto: {producto.nombre}</h2>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h2 className={styles.title}>Detalle del producto: {producto.nombre}</h2>
+                    <span onClick={marcarComoFavotiro} style={{
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        color: esFavorito ? '#ff28df' : '#767676', fontSize: '30px',
+                        transition: 'transform 0.2s ease, color 0.2s ease'
+                    }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+                        {esFavorito ? <AiFillHeart/> : <AiOutlineHeart/>}
+                    </span>
+                </div>
+
                 <h3 className={styles.price}>{new Intl.NumberFormat('es-AR', {
                     style: 'currency',
                     currency: 'ARS',
                     minimumFractionDigits: 0,
                     maximumFractionDigits: 0
                 }).format(producto.precio)}</h3>
+
+
                 <div className={styles.selectorCantidad}>
                     <button className={styles.botonPequeno} onClick={decrementar}>-</button>
                     <span className={styles.cantidadTexto} style={{ margin: '0 10px' }}>{cantidad}</span>

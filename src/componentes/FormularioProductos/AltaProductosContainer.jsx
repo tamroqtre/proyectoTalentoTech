@@ -33,7 +33,8 @@ export function AltaProductosContainer() {
 
         setLoading(true);
 
-        const apiKey = '22d16147610632b5b736b8744d067764';
+        const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
+        console.log("¿Vite está leyendo la API Key?", apiKey);
         const formData = new FormData();
         formData.append('image', imagenFile);
 

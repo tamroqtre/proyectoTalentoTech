@@ -1,21 +1,22 @@
 import styles from './TarjetaProducto.module.css';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../Context/CartContext'
+import { useCart } from '../../Context/CartContext';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
-function TarjetaProducto({ id, imagen, nombre, precio, stock }) {
+function TarjetaProducto({ id, imagen, nombre, precio, stock, categoria, descripcion }) {
 
-    const producto = { id, nombre, precio, stock, imagen };
+    const producto = { id, nombre, precio, stock, imagen, categoria, descripcion };
     const { addToCart, getCurrentQuantity, isInCart } = useCart();
     const [cantidad, setCantidad] = useState(0);
     const [esFavorito, setEsFavorito] = useState(false);
 
-
-    const cantidadActual = getCurrentQuantity(producto.id);
     const yaEstaEnCarrito = isInCart(id);
+    const cantidadActualEnCarrito = getCurrentQuantity(id);
+    const stockDisponibleEfectivo = stock - cantidadActualEnCarrito;
 
     const incrementar = () => {
-        if (cantidad < stock) {
+        if (cantidad < stockDisponibleEfectivo) {
             setCantidad(cantidad + 1);
         }
     };
@@ -31,8 +32,10 @@ function TarjetaProducto({ id, imagen, nombre, precio, stock }) {
     }
 
     const handleAddToCart = () => {
-        addToCart(producto, cantidad);
-        alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`)
+        if (cantidad > 0) {
+            addToCart(producto, cantidad);
+            alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`)
+        }
     };
 
     return (
@@ -40,12 +43,20 @@ function TarjetaProducto({ id, imagen, nombre, precio, stock }) {
             <Link to={`/producto/${id}`}>
                 <img src={imagen} alt={nombre} className={styles.image} />
             </Link>
+
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginTop: '10px' }}>
                 <Link to={`/producto/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <h3 className={styles.cardTitle}>{nombre}</h3>
                 </Link>
-                <span onClick={marcarComoFavotiro} style={{ cursor: 'pointer' }}>
-                    {esFavorito ? '⭐' : '☆'}
+                <span onClick={marcarComoFavotiro} style={{
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    color: esFavorito ? '#ff28df' : '#767676', fontSize: '30px',
+                    transition: 'transform 0.2s ease, color 0.2s ease'
+                }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+                    {esFavorito ? <AiFillHeart /> : <AiOutlineHeart />}
                 </span>
             </div>
 
@@ -54,18 +65,38 @@ function TarjetaProducto({ id, imagen, nombre, precio, stock }) {
                 currency: 'ARS',
                 minimumFractionDigits: 0
             }).format(precio)}</p>
+
+            {yaEstaEnCarrito && (
+                <p style={{ fontSize: '0.85rem', color: '#666', margin: '5px 0' }}>
+                    Ya tienes {cantidadActualEnCarrito} en el carrito
+                </p>
+            )}
+
             <div className={styles.selectorCantidad}>
-                <button className={styles.botonPequeno} onClick={decrementar}>-</button>
+                <button className={styles.botonPequeno} onClick={decrementar} disabled={cantidad === 0}>-</button>
                 <span className={styles.cantidadTexto} style={{ margin: '0 10px' }}>{cantidad}</span>
-                <button className={styles.botonPequeno} onClick={incrementar} disabled={cantidad >= stock}>+</button>
+                <button className={styles.botonPequeno} onClick={incrementar} disabled={cantidad >= stockDisponibleEfectivo}>+</button>
             </div>
 
-            {yaEstaEnCarrito ? (
-                <Link to="/carrito" className={styles.botonIrAlCarrito}>
+            {stockDisponibleEfectivo === 0 ? (
+                <button className={styles.botonAgregar} disabled style={{ backgroundColor: '#ccc' }}>
+                    Sin stock disponible
+                </button>
+            ) : (
+                <button
+                    className={styles.botonAgregar}
+                    onClick={handleAddToCart}
+                    disabled={cantidad === 0}
+                >
+                    {yaEstaEnCarrito ? 'Agregar más' : 'Agregar al carrito'}
+                </button>
+            )}
+
+            {yaEstaEnCarrito && (
+                <Link to="/carrito" className={styles.botonIrAlCarrito} style={{ marginTop: '10px', display: 'block' }}>
                     Ver en el carrito ✅
-                </Link>) : (<button className={styles.botonAgregar} onClick={handleAddToCart} disabled={cantidad === 0} >
-                    Agregar al carrito
-                </button>)}
+                </Link>
+            )}
         </div>
     );
 }
