@@ -65,7 +65,7 @@
 }
 
 .logoLink {
-    text-decoration: none; 
+    text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: row;
@@ -74,7 +74,8 @@
 }
 
 .hamburgerBtn {
-    display: none; /* Se oculta en PC */
+    display: none;
+    /* Se oculta en PC */
     background: none;
     border: none;
     font-size: 2rem;
@@ -85,7 +86,7 @@
 /* Cerrar sesión */
 
 .user-email {
-    color: #4a148c; 
+    color: #4a148c;
     font-weight: 600;
     margin: 0 15px;
     font-size: 1rem;
@@ -93,11 +94,11 @@
 }
 
 .btn-logout {
-    background-color: #880e4f; 
+    background-color: #880e4f;
     color: #ffffff;
     border: none;
     padding: 8px 16px;
-    border-radius: 20px; 
+    border-radius: 20px;
     font-weight: bold;
     font-size: 0.95rem;
     cursor: pointer;
@@ -106,9 +107,9 @@
 }
 
 .btn-logout:hover {
-    background-color: #ff69b4; 
-    transform: scale(1.05); 
-    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3); 
+    background-color: #ff69b4;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
 }
 
 .btn-logout:active {
@@ -123,18 +124,18 @@
 }
 
 .dropdownContent {
-    display: none; 
+    display: none;
     position: absolute;
     background: linear-gradient(145deg, #ffffff, #fbf7ff);
     min-width: 160px;
-    box-shadow: 0px 8px 25px rgba(121, 4, 189, 0.12); 
+    box-shadow: 0px 8px 25px rgba(121, 4, 189, 0.12);
     border-radius: 12px;
     padding: 10px 0;
     z-index: 100;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%); 
-    border: 1px solid #ffdef0; 
+    transform: translateX(-50%);
+    border: 1px solid #ffdef0;
     flex-direction: column;
     gap: 5px;
 }
@@ -153,8 +154,20 @@
 }
 
 .dropdownContent a:hover {
-    background-color: #ffdef0; 
-    color: #7904bd !important; 
+    background-color: #ffdef0;
+    color: #7904bd !important;
+}
+
+.dropdown-trigger {
+    color: #cb56f9;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.dropdown-trigger:hover {
+    color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -165,13 +178,13 @@
     .logo-wrapper {
         position: relative;
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
         width: 100%;
     }
-    
+
     .logoLink {
-        justify-content: center; 
+        justify-content: center;
         margin-bottom: 0;
     }
 
@@ -192,13 +205,13 @@
     }
 
     .hamburgerBtn {
-        display: block; 
+        display: block;
         position: absolute;
         right: 15px;
         top: 50%;
-        transform: translateY(-50%); 
-        font-size: 2.2rem; 
-        color: #7904bd; 
+        transform: translateY(-50%);
+        font-size: 2.2rem;
+        color: #7904bd;
         background: none;
         border: none;
         cursor: pointer;
@@ -214,10 +227,27 @@
     .dropdown {
         width: 100%;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdownContent {
+        display: none;       
+        position: static;   
+        width: 100%;
+        flex-direction: column;
+        background: transparent; 
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .dropdown:hover .dropdownContent {
+        display: flex;
     }
 
     .dropdown .dropdownContent {
-        display: none; 
+        display: none;
         position: static;
         transform: none;
         box-shadow: none;
@@ -232,15 +262,29 @@
     }
 
     .dropdownContent a {
-        font-size: 1.05rem;
-        padding: 6px 0;
-        opacity: 0.85;
+        padding: 8px 16px;
+        font-size: 0.95rem;
+        text-align: center;
+        border-radius: 0px;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .dropdown-trigger {
+        color: #cb56f9;
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+    }
+
+    .dropdownTrigger:hover,
+    .dropdownTrigger:active {
+        color: #7904bd !important; 
+    }
+
+    .dropdownVisible {
+        display: flex !important;
     }
 }
-
-
-
-
-
-
-

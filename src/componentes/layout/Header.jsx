@@ -36,34 +36,30 @@ function Header() {
 
                 <NavLink to="/" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => setMenuOpen(false)}>Inicio</NavLink>
 
-                <div className={`${styles.dropdown} ${dropdownOpen ? styles.dropdownOpen : ''}`}>
-                    <div
-                        className={styles["dropdown-trigger"]}
-                        onClick={handleDropdownToggle}
-                        style={{ cursor: 'pointer' }}
-                    >
+                <div className={styles.dropdown}>
+                    <span className={styles.dropdownTrigger} onClick={handleDropdownToggle}>
                         Productos ▾
-                    </div>
+                    </span>
 
-                    <div className={styles.dropdownContent}>
+                    <div className={`${styles.dropdownContent} ${dropdownOpen ? styles.dropdownVisible : ''}`}>
 
-                        <NavLink to="/productos" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                        <NavLink to="/productos" onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
                             Ver todo
                         </NavLink>
 
-                        <NavLink to="/productos/figuras" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                        <NavLink to="/productos/figuras" onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
                             Figuras
                         </NavLink>
 
-                        <NavLink to="/productos/peluches" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                        <NavLink to="/productos/peluches" onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
                             Peluches
                         </NavLink>
 
-                        <NavLink to="/productos/cd" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                        <NavLink to="/productos/cd" onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
                             CD
                         </NavLink>
-                        
-                        <NavLink to="/productos/colecciones" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+
+                        <NavLink to="/productos/colecciones" onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
                             Colecciones
                         </NavLink>
                     </div>
