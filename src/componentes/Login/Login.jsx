@@ -35,7 +35,7 @@ const Login = () => {
 
                 <div className={styles.formGroup}>
                     <label>Contraseña</label>
-                    <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                 </div>
 
                 <button type="submit" className={styles.btnSubmit}>Ingresar</button>
