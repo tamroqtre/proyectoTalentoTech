@@ -1,0 +1,137 @@
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 20px;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    border: 1px solid #ffdef0;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.loading, .error {
+    text-align: center;
+    color: #4c00829f;
+    padding: 40px;
+    font-size: 1.3rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.searchContainer {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.searchInput {
+    padding: 14px 25px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 50px;
+    border: 2px solid #ffdef0;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+    border-color: #9332d8;
+    box-shadow: 0 4px 15px rgba(147, 50, 216, 0.2);
+}
+
+.title {
+    text-align: center;
+    color: #4c00829f;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+}
+
+.noProducts {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* ==========================================================================
+   SECCIÓN DE PAGINACIÓN OPTIMIZADA
+   ========================================================================== */
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.paginationButton {
+    background-color: #9332d8; /* Violeta principal de tus botones secundarios */
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(147, 50, 216, 0.25);
+    letter-spacing: 0.5px;
+}
+
+.paginationButton:hover:not(:disabled) {
+    background-color: #ff69b4; /* Rosa Akiba Crew en estado hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 105, 180, 0.35);
+}
+
+.paginationButton:disabled {
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    box-shadow: none;
+    transform: none;
+}
+
+.paginationText {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a148c; /* Combinado con tus colores oscuros */
+    font-family: 'Trebuchet MS', sans-serif;
+    background: #fff0f6;
+    padding: 6px 18px;
+    border-radius: 12px;
+    border: 1px solid #ffdef0;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 15px;
+        box-shadow: none;
+    }
+
+    .title {
+        font-size: 1.7rem;
+    }
+
+    .paginationContainer {
+        gap: 10px;
+    }
+
+    .paginationButton {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    .paginationText {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+}

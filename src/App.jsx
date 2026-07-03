@@ -20,6 +20,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Inicio />} />
         <Route path="/productos" element={<ProductoContainer Mensaje={"Productos"} />} />
+        <Route path="/productos/:categoria" element={<ProductoContainer Mensaje={"Productos"} />} />
         <Route path="/producto/:id" element={<ProductoDetalle />} />
         <Route path="/contactanos" element={<ContactoContainer />} />
         <Route path="/carrito" element={<Cart />} />

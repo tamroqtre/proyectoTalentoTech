@@ -9,6 +9,15 @@ function Header() {
 
     const { user, logout } = useAuth();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const handleDropdownToggle = (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
+            setDropdownOpen(!dropdownOpen);
+        }
+    };
 
     return (
         <header className={styles.header}>
@@ -25,25 +34,57 @@ function Header() {
 
             <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
 
-                <NavLink to="/" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Inicio</NavLink>
+                <NavLink to="/" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => setMenuOpen(false)}>Inicio</NavLink>
 
-                <NavLink to="/productos" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Productos</NavLink>
+                <div className={`${styles.dropdown} ${dropdownOpen ? styles.dropdownOpen : ''}`}>
+                    <div
+                        className={styles["dropdown-trigger"]}
+                        onClick={handleDropdownToggle}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        Productos ▾
+                    </div>
 
-                <NavLink to="/contactanos" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Contactanos</NavLink>
+                    <div className={styles.dropdownContent}>
+
+                        <NavLink to="/productos" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                            Ver todo
+                        </NavLink>
+
+                        <NavLink to="/productos/figuras" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                            Figuras
+                        </NavLink>
+
+                        <NavLink to="/productos/peluches" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                            Peluches
+                        </NavLink>
+
+                        <NavLink to="/productos/cd" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                            CD
+                        </NavLink>
+                        
+                        <NavLink to="/productos/colecciones" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => { setMenuOpen(false); setDropdownOpen(false); }}>
+                            Colecciones
+                        </NavLink>
+                    </div>
+                </div>
+
+                <NavLink to="/contactanos" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => setMenuOpen(false)}>Contactanos</NavLink>
+
                 <CartWidget />
 
                 {user ? (
                     <>
                         {/* Mostrar Gestión SOLO si el usuario está logueado Y es admin */}
                         {user.rol === 'admin' && (
-                            <NavLink to="/gestion" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Gestión</NavLink>
+                            <NavLink to="/gestion" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => setMenuOpen(false)}>Gestión</NavLink>
                         )}
                         <span className={styles["user-email"]}>¡Hola, {user.email}!</span>
                         <button onClick={logout} className={styles["btn-logout"]}>Cerrar Sesión</button>
                     </>
                 ) : (
                     /* Si no hay usuario, mostramos el enlace para iniciar sesión */
-                    <NavLink to="/login" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]}>Login</NavLink>
+                    <NavLink to="/login" className={({ isActive }) => isActive ? styles["link-activo"] : styles["link-normal"]} onClick={() => setMenuOpen(false)}>Login</NavLink>
                 )}
             </nav>
         </header>
