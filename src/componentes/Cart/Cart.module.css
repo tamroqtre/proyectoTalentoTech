@@ -159,6 +159,13 @@
     transform: scale(0.9);
 }
 
+.qtyButton:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
 .qtyNumber {
     font-weight: bold;
     font-size: 1.1rem;

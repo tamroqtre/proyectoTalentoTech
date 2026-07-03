@@ -13,10 +13,13 @@ const ProductoDetalle = () => {
     const [cantidad, setCantidad] = useState(1);
     const [esFavorito, setEsFavorito] = useState(false);
 
-    const { addToCart } = useCart();
+    const { addToCart, getCurrentQuantity } = useCart();
+
+    const cantidadActualEnCarrito = producto ? getCurrentQuantity(producto.id) : 0;
+    const stockDisponibleEfectivo = producto ? (producto.stock - cantidadActualEnCarrito) : 0;
 
     const incrementar = () => {
-        if (cantidad < producto.stock) {
+        if (cantidad < stockDisponibleEfectivo) {
             setCantidad(cantidad + 1);
         }
     };
@@ -84,7 +87,7 @@ const ProductoDetalle = () => {
                         transition: 'transform 0.2s ease, color 0.2s ease'
                     }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
-                        {esFavorito ? <AiFillHeart/> : <AiOutlineHeart/>}
+                        {esFavorito ? <AiFillHeart /> : <AiOutlineHeart />}
                     </span>
                 </div>
 
@@ -97,9 +100,9 @@ const ProductoDetalle = () => {
 
 
                 <div className={styles.selectorCantidad}>
-                    <button className={styles.botonPequeno} onClick={decrementar}>-</button>
+                    <button className={styles.botonPequeno} onClick={decrementar} disabled={cantidad === 1}>-</button>
                     <span className={styles.cantidadTexto} style={{ margin: '0 10px' }}>{cantidad}</span>
-                    <button className={styles.botonPequeno} onClick={incrementar} disabled={cantidad >= producto.stock}>+</button>
+                    <button className={styles.botonPequeno} onClick={incrementar} disabled={cantidad >= stockDisponibleEfectivo}>+</button>
                 </div>
                 <p className={styles.description}>{producto.descripcion}</p>
                 <button className={styles.button} onClick={() => {

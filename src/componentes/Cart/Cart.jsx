@@ -32,9 +32,9 @@ const Cart = () => {
                     <div className={styles.itemInfo}>
                         <h3>{item.nombre}</h3>
                         <div className={styles.quantityControls}>
-                            <button className={styles.qtyButton} onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+                            <button className={styles.qtyButton} onClick={() => updateQuantity(item.id, item.quantity - 1)} disabled={item.quantity === 1}>-</button>
                             <span className={styles.qtyNumber}>{item.quantity}</span>
-                            <button className={styles.qtyButton} onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+                            <button className={styles.qtyButton} onClick={() => updateQuantity(item.id, item.quantity + 1)} disabled={item.quantity >= item.stock}>+</button>
                         </div>
                         <p>Cantidad: {item.quantity}</p>
                         <p>Precio unitario: ${new Intl.NumberFormat('es-AR', {

@@ -80,6 +80,14 @@
     box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
 }
 
+.botonPequeno:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    border-color: #ccc;
+    cursor: not-allowed;
+    transform: none !important; /* Por si tenías un efecto hover de agrandar */
+}
+
 
 /* ... (todo tu código anterior igual) ... */
 
