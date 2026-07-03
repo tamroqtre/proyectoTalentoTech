@@ -88,6 +88,39 @@
     transform: none !important; /* Por si tenías un efecto hover de agrandar */
 }
 
+.infoExtra {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.badgeCategoria {
+    background-color: #e1f5fe;
+    color: #0277bd;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+}
+
+.badgeStock {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.badgeSinStock {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
 
 /* ... (todo tu código anterior igual) ... */
 

@@ -125,6 +125,39 @@
     background-color: #21887c;
 }
 
+.infoBadges {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.badgeCategoria {
+    background: #e3f2fd;
+    color: #0277bd;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+}
+
+.badgeStock {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.badgeSinStock {
+    background: #ffebee;
+    color: #c62828;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
 @media (max-width: 768px) {
     .card {
         width: 90%; /* Que ocupe casi todo el ancho en celus */

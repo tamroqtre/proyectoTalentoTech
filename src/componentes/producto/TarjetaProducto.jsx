@@ -66,6 +66,16 @@ function TarjetaProducto({ id, imagen, nombre, precio, stock, categoria, descrip
                 minimumFractionDigits: 0
             }).format(precio)}</p>
 
+            <div className={styles.infoBadges}>
+                <span className={styles.badgeCategoria}>
+                    {categoria}
+                </span>
+
+                <span className={stock > 0 ? styles.badgeStock : styles.badgeSinStock}>
+                    Stock: {stock}
+                </span>
+            </div>
+
             {yaEstaEnCarrito && (
                 <p style={{ fontSize: '0.85rem', color: '#666', margin: '5px 0' }}>
                     Ya tienes {cantidadActualEnCarrito} en el carrito

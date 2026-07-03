@@ -55,7 +55,6 @@ const ProductoDetalle = () => {
                         setProducto({ error: true });
                     }
                 }).catch(error => console.log(error));
-            setProducto({ error: true });
         }
 
     }, [id]);
@@ -99,12 +98,23 @@ const ProductoDetalle = () => {
                 }).format(producto.precio)}</h3>
 
 
+                <div className={styles.infoExtra}>
+                    <span className={styles.badgeCategoria}>
+                        Categoría: {producto.categoria}
+                    </span>
+
+                    <span className={producto.stock > 0 ? styles.badgeStock : styles.badgeSinStock}>
+                        Stock: {producto.stock}
+                    </span>
+                </div>
+
                 <div className={styles.selectorCantidad}>
                     <button className={styles.botonPequeno} onClick={decrementar} disabled={cantidad === 1}>-</button>
                     <span className={styles.cantidadTexto} style={{ margin: '0 10px' }}>{cantidad}</span>
                     <button className={styles.botonPequeno} onClick={incrementar} disabled={cantidad >= stockDisponibleEfectivo}>+</button>
                 </div>
                 <p className={styles.description}>{producto.descripcion}</p>
+
                 <button className={styles.button} onClick={() => {
                     addToCart(producto, cantidad);
                     alert(`¡${producto.nombre} agregado al carrito! 🛒`);
