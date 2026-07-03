@@ -75,7 +75,7 @@ const Gestion = () => {
             let urlImagen = datosForm.imagen;
 
             if (imagenFile) {
-                const apiKey = '22d16147610632b5b736b8744d067764';
+                const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
                 const formData = new FormData();
                 formData.append('image', imagenFile);
 
